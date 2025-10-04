@@ -1,0 +1,2258 @@
+2025-10-04 10:32:39,785 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 10:32:39,788 - __main__ - INFO - Starting system initialization...
+2025-10-04 10:32:39,788 - __main__ - INFO - Initializing memory systems...
+2025-10-04 10:32:39,788 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 10:32:41,863 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 10:32:41,907 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 10:32:41,911 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 10:32:46,009 - memory.semantic - ERROR - Failed to initialize: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 234, in _connect_secure
+    await wait_for(loop.sock_connect(s, resolved_address), timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+ConnectionRefusedError: [WinError 1225] The remote computer refused the network connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 329, in connect
+    s = await cls._connect_secure(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 311, in _connect_secure
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\memory\semantic.py", line 48, in initialize
+    await self.driver.verify_connectivity()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1061, in verify_connectivity
+    await self._get_server_info(session_config)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1290, in _get_server_info
+    return await session._get_server_info()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 173, in _get_server_info
+    await self._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 126, in _connect
+    await super()._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\workspace.py", line 184, in _connect
+    self._connection = await self._pool.acquire(**acquire_kwargs_)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 681, in acquire
+    return await self._acquire(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 421, in _acquire
+    return await connection_creator()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 234, in connection_creator
+    connection = await self.opener(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 641, in opener
+    return await AsyncBolt.open(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt.py", line 367, in open
+    s, protocol_version = await AsyncBoltSocket.connect(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 376, in connect
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 10:32:46,196 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 10:32:46,196 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 10:32:46,290 - __main__ - INFO - Initializing MCP server...
+2025-10-04 10:32:46,290 - __main__ - ERROR - Initialization failed: MCPServer.__init__() got an unexpected keyword argument 'host'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 64, in initialize
+    self.mcp_server = MCPServer(
+                      ^^^^^^^^^^
+TypeError: MCPServer.__init__() got an unexpected keyword argument 'host'
+2025-10-04 10:33:26,260 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 10:33:26,262 - __main__ - INFO - Starting system initialization...
+2025-10-04 10:33:26,262 - __main__ - INFO - Initializing memory systems...
+2025-10-04 10:33:26,262 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 10:33:28,318 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 10:33:28,327 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 10:33:28,329 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 10:33:32,424 - memory.semantic - ERROR - Failed to initialize: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 234, in _connect_secure
+    await wait_for(loop.sock_connect(s, resolved_address), timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+ConnectionRefusedError: [WinError 1225] The remote computer refused the network connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 329, in connect
+    s = await cls._connect_secure(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 311, in _connect_secure
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\memory\semantic.py", line 48, in initialize
+    await self.driver.verify_connectivity()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1061, in verify_connectivity
+    await self._get_server_info(session_config)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1290, in _get_server_info
+    return await session._get_server_info()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 173, in _get_server_info
+    await self._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 126, in _connect
+    await super()._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\workspace.py", line 184, in _connect
+    self._connection = await self._pool.acquire(**acquire_kwargs_)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 681, in acquire
+    return await self._acquire(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 421, in _acquire
+    return await connection_creator()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 234, in connection_creator
+    connection = await self.opener(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 641, in opener
+    return await AsyncBolt.open(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt.py", line 367, in open
+    s, protocol_version = await AsyncBoltSocket.connect(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 376, in connect
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 10:33:32,437 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 10:33:32,438 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 10:33:32,449 - __main__ - INFO - Initializing MCP server...
+2025-10-04 10:33:32,449 - __main__ - ERROR - Initialization failed: MCPServer.__init__() got an unexpected keyword argument 'host'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 64, in initialize
+    self.mcp_server = MCPServer(
+                      ^^^^^^^^^^
+TypeError: MCPServer.__init__() got an unexpected keyword argument 'host'
+2025-10-04 12:22:43,714 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 12:22:43,719 - __main__ - INFO - Starting system initialization...
+2025-10-04 12:22:43,719 - __main__ - INFO - Initializing memory systems...
+2025-10-04 12:22:43,719 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 12:22:45,786 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 12:22:45,797 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 12:22:45,798 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 12:22:49,869 - memory.semantic - ERROR - Failed to initialize: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 234, in _connect_secure
+    await wait_for(loop.sock_connect(s, resolved_address), timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+ConnectionRefusedError: [WinError 1225] The remote computer refused the network connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 329, in connect
+    s = await cls._connect_secure(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 311, in _connect_secure
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\memory\semantic.py", line 48, in initialize
+    await self.driver.verify_connectivity()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1061, in verify_connectivity
+    await self._get_server_info(session_config)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1290, in _get_server_info
+    return await session._get_server_info()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 173, in _get_server_info
+    await self._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 126, in _connect
+    await super()._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\workspace.py", line 184, in _connect
+    self._connection = await self._pool.acquire(**acquire_kwargs_)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 681, in acquire
+    return await self._acquire(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 421, in _acquire
+    return await connection_creator()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 234, in connection_creator
+    connection = await self.opener(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 641, in opener
+    return await AsyncBolt.open(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt.py", line 367, in open
+    s, protocol_version = await AsyncBoltSocket.connect(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 376, in connect
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 12:22:49,893 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 12:22:49,893 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 12:22:49,921 - __main__ - INFO - Initializing database manager...
+2025-10-04 12:22:49,943 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 12:22:50,138 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 12:22:50,139 - __main__ - INFO - Initializing transport manager...
+2025-10-04 12:22:50,141 - __main__ - INFO - Initializing MCP server...
+2025-10-04 12:22:50,141 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 12:22:50,142 - transport.websocket - INFO - Starting WebSocket server on localhost:8080
+2025-10-04 12:22:50,146 - transport.websocket - ERROR - Failed to start WebSocket server: 'Settings' object has no attribute 'WS_MAX_MESSAGE_SIZE'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 111, in start
+    max_size=settings.WS_MAX_MESSAGE_SIZE,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Settings' object has no attribute 'WS_MAX_MESSAGE_SIZE'
+2025-10-04 12:22:50,148 - mcp.transport - ERROR - Failed to connect transport: 'Settings' object has no attribute 'WS_MAX_MESSAGE_SIZE'
+2025-10-04 12:22:50,148 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 12:22:50,158 - __main__ - INFO - Initializing MCP client...
+2025-10-04 12:22:50,158 - __main__ - ERROR - Initialization failed: MCPClient.__init__() got an unexpected keyword argument 'server_url'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 96, in initialize
+    self.mcp_client = MCPClient(
+                      ^^^^^^^^^^
+TypeError: MCPClient.__init__() got an unexpected keyword argument 'server_url'
+2025-10-04 12:27:42,930 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 12:27:42,931 - __main__ - INFO - Starting system initialization...
+2025-10-04 12:27:42,933 - __main__ - INFO - Initializing memory systems...
+2025-10-04 12:27:42,933 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 12:27:44,989 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 12:27:44,991 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 12:27:44,993 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 12:27:49,074 - memory.semantic - ERROR - Failed to initialize: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 234, in _connect_secure
+    await wait_for(loop.sock_connect(s, resolved_address), timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+ConnectionRefusedError: [WinError 1225] The remote computer refused the network connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 329, in connect
+    s = await cls._connect_secure(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 311, in _connect_secure
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\memory\semantic.py", line 48, in initialize
+    await self.driver.verify_connectivity()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1061, in verify_connectivity
+    await self._get_server_info(session_config)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1290, in _get_server_info
+    return await session._get_server_info()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 173, in _get_server_info
+    await self._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 126, in _connect
+    await super()._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\workspace.py", line 184, in _connect
+    self._connection = await self._pool.acquire(**acquire_kwargs_)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 681, in acquire
+    return await self._acquire(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 421, in _acquire
+    return await connection_creator()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 234, in connection_creator
+    connection = await self.opener(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 641, in opener
+    return await AsyncBolt.open(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt.py", line 367, in open
+    s, protocol_version = await AsyncBoltSocket.connect(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 376, in connect
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 12:27:49,100 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 12:27:49,100 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 12:27:49,108 - __main__ - INFO - Initializing database manager...
+2025-10-04 12:27:49,125 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 12:27:49,135 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 12:27:49,136 - __main__ - INFO - Initializing transport manager...
+2025-10-04 12:27:49,137 - __main__ - ERROR - Initialization failed: cannot access local variable 'TransportConfig' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 75, in initialize
+    ws_config = TransportConfig(
+                ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'TransportConfig' where it is not associated with a value
+2025-10-04 12:29:59,909 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 12:29:59,910 - __main__ - INFO - Starting system initialization...
+2025-10-04 12:29:59,911 - __main__ - INFO - Initializing memory systems...
+2025-10-04 12:29:59,911 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 12:30:01,970 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 12:30:01,973 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 12:30:01,974 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 12:30:06,070 - memory.semantic - ERROR - Failed to initialize: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 234, in _connect_secure
+    await wait_for(loop.sock_connect(s, resolved_address), timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+ConnectionRefusedError: [WinError 1225] The remote computer refused the network connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 329, in connect
+    s = await cls._connect_secure(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 311, in _connect_secure
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\memory\semantic.py", line 48, in initialize
+    await self.driver.verify_connectivity()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1061, in verify_connectivity
+    await self._get_server_info(session_config)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1290, in _get_server_info
+    return await session._get_server_info()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 173, in _get_server_info
+    await self._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 126, in _connect
+    await super()._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\workspace.py", line 184, in _connect
+    self._connection = await self._pool.acquire(**acquire_kwargs_)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 681, in acquire
+    return await self._acquire(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 421, in _acquire
+    return await connection_creator()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 234, in connection_creator
+    connection = await self.opener(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 641, in opener
+    return await AsyncBolt.open(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt.py", line 367, in open
+    s, protocol_version = await AsyncBoltSocket.connect(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 376, in connect
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 12:30:06,077 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 12:30:06,077 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 12:30:06,085 - __main__ - INFO - Initializing database manager...
+2025-10-04 12:30:06,102 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 12:30:06,105 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 12:30:06,109 - __main__ - INFO - Initializing transport manager...
+2025-10-04 12:30:06,115 - __main__ - INFO - Initializing MCP server...
+2025-10-04 12:30:06,115 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 12:30:06,115 - transport.websocket - INFO - Starting WebSocket server on localhost:8080
+2025-10-04 12:30:06,119 - transport.websocket - ERROR - Failed to start WebSocket server: 'Settings' object has no attribute 'WS_HEARTBEAT_INTERVAL'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 112, in start
+    ping_interval=settings.WS_HEARTBEAT_INTERVAL,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Settings' object has no attribute 'WS_HEARTBEAT_INTERVAL'
+2025-10-04 12:30:06,122 - mcp.transport - ERROR - Failed to connect transport: 'Settings' object has no attribute 'WS_HEARTBEAT_INTERVAL'
+2025-10-04 12:30:06,122 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 12:30:06,125 - __main__ - INFO - Initializing MCP client...
+2025-10-04 12:30:06,125 - mcp.client - INFO - Client main_client connecting to MCP server...
+2025-10-04 12:30:06,126 - transport.websocket - INFO - Starting WebSocket server on localhost:8080
+2025-10-04 12:30:06,126 - transport.websocket - ERROR - Failed to start WebSocket server: 'Settings' object has no attribute 'WS_HEARTBEAT_INTERVAL'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 112, in start
+    ping_interval=settings.WS_HEARTBEAT_INTERVAL,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Settings' object has no attribute 'WS_HEARTBEAT_INTERVAL'
+2025-10-04 12:30:06,131 - mcp.client - ERROR - Error connecting client: 'Settings' object has no attribute 'WS_HEARTBEAT_INTERVAL'
+2025-10-04 12:30:06,135 - __main__ - INFO - Initializing transport handlers...
+2025-10-04 12:30:06,136 - transport.websocket - INFO - Starting WebSocket server on localhost:8080
+2025-10-04 12:30:06,136 - transport.websocket - ERROR - Failed to start WebSocket server: 'Settings' object has no attribute 'WS_HEARTBEAT_INTERVAL'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 112, in start
+    ping_interval=settings.WS_HEARTBEAT_INTERVAL,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Settings' object has no attribute 'WS_HEARTBEAT_INTERVAL'
+2025-10-04 12:30:06,138 - __main__ - ERROR - Initialization failed: 'Settings' object has no attribute 'WS_HEARTBEAT_INTERVAL'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 112, in initialize
+    await self.websocket_handler.start()
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 112, in start
+    ping_interval=settings.WS_HEARTBEAT_INTERVAL,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Settings' object has no attribute 'WS_HEARTBEAT_INTERVAL'
+2025-10-04 12:31:23,311 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 12:31:23,312 - __main__ - INFO - Starting system initialization...
+2025-10-04 12:31:23,313 - __main__ - INFO - Initializing memory systems...
+2025-10-04 12:31:23,313 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 12:31:25,367 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 12:31:25,373 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 12:31:25,380 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 12:31:29,468 - memory.semantic - ERROR - Failed to initialize: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 234, in _connect_secure
+    await wait_for(loop.sock_connect(s, resolved_address), timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+ConnectionRefusedError: [WinError 1225] The remote computer refused the network connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 329, in connect
+    s = await cls._connect_secure(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 311, in _connect_secure
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\memory\semantic.py", line 48, in initialize
+    await self.driver.verify_connectivity()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1061, in verify_connectivity
+    await self._get_server_info(session_config)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1290, in _get_server_info
+    return await session._get_server_info()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 173, in _get_server_info
+    await self._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 126, in _connect
+    await super()._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\workspace.py", line 184, in _connect
+    self._connection = await self._pool.acquire(**acquire_kwargs_)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 681, in acquire
+    return await self._acquire(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 421, in _acquire
+    return await connection_creator()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 234, in connection_creator
+    connection = await self.opener(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 641, in opener
+    return await AsyncBolt.open(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt.py", line 367, in open
+    s, protocol_version = await AsyncBoltSocket.connect(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 376, in connect
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 12:31:29,481 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 12:31:29,481 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 12:31:29,491 - __main__ - INFO - Initializing database manager...
+2025-10-04 12:31:29,514 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 12:31:29,517 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 12:31:29,519 - __main__ - INFO - Initializing transport manager...
+2025-10-04 12:31:29,522 - __main__ - INFO - Initializing MCP server...
+2025-10-04 12:31:29,522 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 12:31:29,522 - transport.websocket - INFO - Starting WebSocket server on localhost:8080
+2025-10-04 12:31:29,525 - transport.websocket - ERROR - Failed to start WebSocket server: 'Settings' object has no attribute 'WS_TIMEOUT'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 113, in start
+    ping_timeout=settings.WS_TIMEOUT
+                 ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Settings' object has no attribute 'WS_TIMEOUT'
+2025-10-04 12:31:29,529 - mcp.transport - ERROR - Failed to connect transport: 'Settings' object has no attribute 'WS_TIMEOUT'
+2025-10-04 12:31:29,531 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 12:31:29,534 - __main__ - INFO - Initializing MCP client...
+2025-10-04 12:31:29,535 - mcp.client - INFO - Client main_client connecting to MCP server...
+2025-10-04 12:31:29,535 - transport.websocket - INFO - Starting WebSocket server on localhost:8080
+2025-10-04 12:31:29,535 - transport.websocket - ERROR - Failed to start WebSocket server: 'Settings' object has no attribute 'WS_TIMEOUT'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 113, in start
+    ping_timeout=settings.WS_TIMEOUT
+                 ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Settings' object has no attribute 'WS_TIMEOUT'
+2025-10-04 12:31:29,537 - mcp.client - ERROR - Error connecting client: 'Settings' object has no attribute 'WS_TIMEOUT'
+2025-10-04 12:31:29,538 - __main__ - INFO - Initializing transport handlers...
+2025-10-04 12:31:29,539 - transport.websocket - INFO - Starting WebSocket server on localhost:8080
+2025-10-04 12:31:29,539 - transport.websocket - ERROR - Failed to start WebSocket server: 'Settings' object has no attribute 'WS_TIMEOUT'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 113, in start
+    ping_timeout=settings.WS_TIMEOUT
+                 ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Settings' object has no attribute 'WS_TIMEOUT'
+2025-10-04 12:31:29,540 - __main__ - ERROR - Initialization failed: 'Settings' object has no attribute 'WS_TIMEOUT'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 112, in initialize
+    await self.websocket_handler.start()
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 113, in start
+    ping_timeout=settings.WS_TIMEOUT
+                 ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Settings' object has no attribute 'WS_TIMEOUT'
+2025-10-04 12:32:49,707 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 12:32:49,707 - __main__ - INFO - Starting system initialization...
+2025-10-04 12:32:49,708 - __main__ - INFO - Initializing memory systems...
+2025-10-04 12:32:49,708 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 12:32:51,770 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 12:32:51,778 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 12:32:51,784 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 12:32:55,893 - memory.semantic - ERROR - Failed to initialize: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 234, in _connect_secure
+    await wait_for(loop.sock_connect(s, resolved_address), timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+ConnectionRefusedError: [WinError 1225] The remote computer refused the network connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 329, in connect
+    s = await cls._connect_secure(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 311, in _connect_secure
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\memory\semantic.py", line 48, in initialize
+    await self.driver.verify_connectivity()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1061, in verify_connectivity
+    await self._get_server_info(session_config)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1290, in _get_server_info
+    return await session._get_server_info()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 173, in _get_server_info
+    await self._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 126, in _connect
+    await super()._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\workspace.py", line 184, in _connect
+    self._connection = await self._pool.acquire(**acquire_kwargs_)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 681, in acquire
+    return await self._acquire(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 421, in _acquire
+    return await connection_creator()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 234, in connection_creator
+    connection = await self.opener(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 641, in opener
+    return await AsyncBolt.open(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt.py", line 367, in open
+    s, protocol_version = await AsyncBoltSocket.connect(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 376, in connect
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 12:32:55,905 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 12:32:55,906 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 12:32:55,917 - __main__ - INFO - Initializing database manager...
+2025-10-04 12:32:55,941 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 12:32:55,947 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 12:32:55,949 - __main__ - INFO - Initializing transport manager...
+2025-10-04 12:32:55,951 - __main__ - INFO - Initializing MCP server...
+2025-10-04 12:32:55,952 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 12:32:55,952 - transport.websocket - INFO - Starting WebSocket server on localhost:8080
+2025-10-04 12:32:55,955 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 12:32:55,957 - websockets.server - INFO - server listening on [::1]:8080
+2025-10-04 12:32:55,957 - websockets.server - INFO - server listening on 127.0.0.1:8080
+2025-10-04 12:32:55,957 - transport.websocket - INFO - WebSocket server started successfully
+2025-10-04 12:32:55,958 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 12:32:55,962 - __main__ - INFO - Initializing MCP client...
+2025-10-04 12:32:55,963 - mcp.client - INFO - Client main_client connecting to MCP server...
+2025-10-04 12:32:55,963 - transport.websocket - INFO - Starting WebSocket server on localhost:8080
+2025-10-04 12:32:55,963 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 12:32:55,964 - transport.websocket - ERROR - Failed to start WebSocket server: [Errno 10048] error while attempting to bind on address ('::1', 8080, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 107, in start
+    self.server = await websockets.serve(
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\websockets\asyncio\server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1571, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('::1', 8080, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 12:32:56,021 - mcp.client - ERROR - Error connecting client: [Errno 10048] error while attempting to bind on address ('::1', 8080, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 12:32:56,022 - __main__ - INFO - Initializing transport handlers...
+2025-10-04 12:32:56,022 - transport.websocket - INFO - Starting WebSocket server on localhost:8080
+2025-10-04 12:32:56,023 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 12:32:56,023 - transport.websocket - ERROR - Failed to start WebSocket server: [Errno 10048] error while attempting to bind on address ('::1', 8080, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 107, in start
+    self.server = await websockets.serve(
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\websockets\asyncio\server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1571, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('::1', 8080, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 12:32:56,024 - __main__ - ERROR - Initialization failed: [Errno 10048] error while attempting to bind on address ('::1', 8080, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 112, in initialize
+    await self.websocket_handler.start()
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 107, in start
+    self.server = await websockets.serve(
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\websockets\asyncio\server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1571, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('::1', 8080, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 12:35:27,107 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 12:35:27,108 - __main__ - INFO - Starting system initialization...
+2025-10-04 12:35:27,108 - __main__ - INFO - Initializing memory systems...
+2025-10-04 12:35:27,109 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 12:35:29,152 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 12:35:29,159 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 12:35:29,164 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 12:35:33,246 - memory.semantic - ERROR - Failed to initialize: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 234, in _connect_secure
+    await wait_for(loop.sock_connect(s, resolved_address), timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+ConnectionRefusedError: [WinError 1225] The remote computer refused the network connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 329, in connect
+    s = await cls._connect_secure(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 311, in _connect_secure
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\memory\semantic.py", line 48, in initialize
+    await self.driver.verify_connectivity()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1061, in verify_connectivity
+    await self._get_server_info(session_config)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1290, in _get_server_info
+    return await session._get_server_info()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 173, in _get_server_info
+    await self._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 126, in _connect
+    await super()._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\workspace.py", line 184, in _connect
+    self._connection = await self._pool.acquire(**acquire_kwargs_)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 681, in acquire
+    return await self._acquire(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 421, in _acquire
+    return await connection_creator()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 234, in connection_creator
+    connection = await self.opener(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 641, in opener
+    return await AsyncBolt.open(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt.py", line 367, in open
+    s, protocol_version = await AsyncBoltSocket.connect(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 376, in connect
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 12:35:33,262 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 12:35:33,262 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 12:35:33,271 - __main__ - INFO - Initializing database manager...
+2025-10-04 12:35:33,299 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 12:35:33,302 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 12:35:33,303 - __main__ - INFO - Initializing transport manager...
+2025-10-04 12:35:33,306 - __main__ - INFO - Initializing MCP server...
+2025-10-04 12:35:33,306 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 12:35:33,307 - mcp.transport - INFO - Connecting to WebSocket server at ws://ws://localhost:8080
+2025-10-04 12:35:33,326 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 12:35:33,327 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 12:35:33,327 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 12:35:33,328 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 12:35:33,329 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 12:35:37,406 - memory.semantic - ERROR - Cleanup failed: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 234, in _connect_secure
+    await wait_for(loop.sock_connect(s, resolved_address), timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+ConnectionRefusedError: [WinError 1225] The remote computer refused the network connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 329, in connect
+    s = await cls._connect_secure(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 311, in _connect_secure
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\memory\semantic.py", line 539, in cleanup
+    result = await session.run("""
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 305, in run
+    await self._connect(self._config.default_access_mode)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 126, in _connect
+    await super()._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\workspace.py", line 184, in _connect
+    self._connection = await self._pool.acquire(**acquire_kwargs_)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 681, in acquire
+    return await self._acquire(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 421, in _acquire
+    return await connection_creator()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 234, in connection_creator
+    connection = await self.opener(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 641, in opener
+    return await AsyncBolt.open(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt.py", line 367, in open
+    s, protocol_version = await AsyncBoltSocket.connect(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 376, in connect
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 12:35:37,411 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 12:35:37,411 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 12:35:40,598 - mcp.transport - ERROR - Failed to connect WebSocket client: [Errno 11001] getaddrinfo failed
+2025-10-04 12:35:40,602 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 12:35:40,605 - __main__ - INFO - Initializing MCP client...
+2025-10-04 12:35:40,605 - mcp.client - INFO - Client main_client connecting to MCP server...
+2025-10-04 12:35:40,606 - mcp.transport - INFO - Connecting to WebSocket server at ws://ws://localhost:8080
+2025-10-04 12:35:43,333 - mcp.transport - ERROR - Failed to connect WebSocket client: [Errno 11001] getaddrinfo failed
+2025-10-04 12:35:43,334 - mcp.client - ERROR - Failed to connect transport
+2025-10-04 12:35:43,336 - __main__ - INFO - Initializing transport handlers...
+2025-10-04 12:35:43,336 - transport.websocket - INFO - Starting WebSocket server on localhost:8080
+2025-10-04 12:35:43,341 - websockets.server - INFO - server listening on [::1]:8080
+2025-10-04 12:35:43,343 - websockets.server - INFO - server listening on 127.0.0.1:8080
+2025-10-04 12:35:43,343 - transport.websocket - INFO - WebSocket server started successfully
+2025-10-04 12:35:43,347 - __main__ - ERROR - Initialization failed: 'Settings' object has no attribute 'ALLOWED_ORIGINS'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 116, in initialize
+    self.http_handler = HTTPTransportHandler()
+                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\http_handler.py", line 77, in __init__
+    self._setup_middleware()
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\http_handler.py", line 85, in _setup_middleware
+    allow_origins=settings.ALLOWED_ORIGINS,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Settings' object has no attribute 'ALLOWED_ORIGINS'
+2025-10-04 12:37:30,365 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 12:37:30,366 - __main__ - INFO - Starting system initialization...
+2025-10-04 12:37:30,366 - __main__ - INFO - Initializing memory systems...
+2025-10-04 12:37:30,366 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 12:37:32,419 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 12:37:32,421 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 12:37:32,424 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 12:37:36,504 - memory.semantic - ERROR - Failed to initialize: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 234, in _connect_secure
+    await wait_for(loop.sock_connect(s, resolved_address), timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+ConnectionRefusedError: [WinError 1225] The remote computer refused the network connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 329, in connect
+    s = await cls._connect_secure(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 311, in _connect_secure
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\memory\semantic.py", line 48, in initialize
+    await self.driver.verify_connectivity()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1061, in verify_connectivity
+    await self._get_server_info(session_config)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1290, in _get_server_info
+    return await session._get_server_info()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 173, in _get_server_info
+    await self._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 126, in _connect
+    await super()._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\workspace.py", line 184, in _connect
+    self._connection = await self._pool.acquire(**acquire_kwargs_)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 681, in acquire
+    return await self._acquire(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 421, in _acquire
+    return await connection_creator()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 234, in connection_creator
+    connection = await self.opener(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 641, in opener
+    return await AsyncBolt.open(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt.py", line 367, in open
+    s, protocol_version = await AsyncBoltSocket.connect(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 376, in connect
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 12:37:36,514 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 12:37:36,514 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 12:37:36,520 - __main__ - INFO - Initializing database manager...
+2025-10-04 12:37:36,533 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 12:37:36,536 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 12:37:36,537 - __main__ - INFO - Initializing transport manager...
+2025-10-04 12:37:36,538 - __main__ - INFO - Initializing MCP server...
+2025-10-04 12:37:36,541 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 12:37:36,541 - mcp.transport - INFO - Connecting to WebSocket server at ws://ws://localhost:8080
+2025-10-04 12:37:36,560 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 12:37:36,561 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 12:37:36,561 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 12:37:36,561 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 12:37:36,562 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 12:37:40,655 - memory.semantic - ERROR - Cleanup failed: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 234, in _connect_secure
+    await wait_for(loop.sock_connect(s, resolved_address), timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+ConnectionRefusedError: [WinError 1225] The remote computer refused the network connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 329, in connect
+    s = await cls._connect_secure(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 311, in _connect_secure
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\memory\semantic.py", line 539, in cleanup
+    result = await session.run("""
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 305, in run
+    await self._connect(self._config.default_access_mode)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 126, in _connect
+    await super()._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\workspace.py", line 184, in _connect
+    self._connection = await self._pool.acquire(**acquire_kwargs_)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 681, in acquire
+    return await self._acquire(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 421, in _acquire
+    return await connection_creator()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 234, in connection_creator
+    connection = await self.opener(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 641, in opener
+    return await AsyncBolt.open(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt.py", line 367, in open
+    s, protocol_version = await AsyncBoltSocket.connect(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 376, in connect
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 12:37:40,658 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 12:37:40,658 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 12:37:43,829 - mcp.transport - ERROR - Failed to connect WebSocket client: [Errno 11001] getaddrinfo failed
+2025-10-04 12:37:43,829 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 12:37:43,832 - __main__ - INFO - Initializing MCP client...
+2025-10-04 12:37:43,832 - mcp.client - INFO - Client main_client connecting to MCP server...
+2025-10-04 12:37:43,832 - mcp.transport - INFO - Connecting to WebSocket server at ws://ws://localhost:8080
+2025-10-04 12:37:46,531 - mcp.transport - ERROR - Failed to connect WebSocket client: [Errno 11001] getaddrinfo failed
+2025-10-04 12:37:46,550 - mcp.client - ERROR - Failed to connect transport
+2025-10-04 12:37:46,552 - __main__ - INFO - Initializing transport handlers...
+2025-10-04 12:37:46,552 - transport.websocket - INFO - Starting WebSocket server on localhost:8080
+2025-10-04 12:37:46,555 - transport.websocket - ERROR - Failed to start WebSocket server: [Errno 10048] error while attempting to bind on address ('::1', 8080, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 107, in start
+    self.server = await websockets.serve(
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\websockets\asyncio\server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1571, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('::1', 8080, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 12:37:46,559 - __main__ - ERROR - Initialization failed: [Errno 10048] error while attempting to bind on address ('::1', 8080, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 112, in initialize
+    await self.websocket_handler.start()
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 107, in start
+    self.server = await websockets.serve(
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\websockets\asyncio\server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1571, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('::1', 8080, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 12:38:32,011 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 12:38:32,014 - __main__ - INFO - Starting system initialization...
+2025-10-04 12:38:32,014 - __main__ - INFO - Initializing memory systems...
+2025-10-04 12:38:32,014 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 12:38:34,048 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 12:38:34,050 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 12:38:34,052 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 12:38:38,140 - memory.semantic - ERROR - Failed to initialize: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 234, in _connect_secure
+    await wait_for(loop.sock_connect(s, resolved_address), timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+ConnectionRefusedError: [WinError 1225] The remote computer refused the network connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 329, in connect
+    s = await cls._connect_secure(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 311, in _connect_secure
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\memory\semantic.py", line 48, in initialize
+    await self.driver.verify_connectivity()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1061, in verify_connectivity
+    await self._get_server_info(session_config)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\driver.py", line 1290, in _get_server_info
+    return await session._get_server_info()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 173, in _get_server_info
+    await self._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 126, in _connect
+    await super()._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\workspace.py", line 184, in _connect
+    self._connection = await self._pool.acquire(**acquire_kwargs_)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 681, in acquire
+    return await self._acquire(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 421, in _acquire
+    return await connection_creator()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 234, in connection_creator
+    connection = await self.opener(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 641, in opener
+    return await AsyncBolt.open(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt.py", line 367, in open
+    s, protocol_version = await AsyncBoltSocket.connect(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 376, in connect
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 12:38:38,234 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 12:38:38,234 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 12:38:38,250 - __main__ - INFO - Initializing database manager...
+2025-10-04 12:38:38,280 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 12:38:38,284 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 12:38:38,285 - __main__ - INFO - Initializing transport manager...
+2025-10-04 12:38:38,300 - __main__ - INFO - Initializing MCP server...
+2025-10-04 12:38:38,301 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 12:38:38,301 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:8080
+2025-10-04 12:38:38,320 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 12:38:38,326 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 12:38:38,331 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 12:38:38,332 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 12:38:38,333 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 12:38:42,377 - memory.semantic - ERROR - Cleanup failed: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 234, in _connect_secure
+    await wait_for(loop.sock_connect(s, resolved_address), timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+ConnectionRefusedError: [WinError 1225] The remote computer refused the network connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 329, in connect
+    s = await cls._connect_secure(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async_compat\network\_bolt_socket.py", line 311, in _connect_secure
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\memory\semantic.py", line 539, in cleanup
+    result = await session.run("""
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 305, in run
+    await self._connect(self._config.default_access_mode)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\session.py", line 126, in _connect
+    await super()._connect(
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\work\workspace.py", line 184, in _connect
+    self._connection = await self._pool.acquire(**acquire_kwargs_)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 681, in acquire
+    return await self._acquire(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 421, in _acquire
+    return await connection_creator()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 234, in connection_creator
+    connection = await self.opener(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_pool.py", line 641, in opener
+    return await AsyncBolt.open(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt.py", line 367, in open
+    s, protocol_version = await AsyncBoltSocket.connect(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\neo4j\_async\io\_bolt_socket.py", line 376, in connect
+    raise ServiceUnavailable(
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 12:38:42,380 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 12:38:42,380 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 12:38:48,347 - mcp.transport - ERROR - Failed to connect WebSocket client: timed out during opening handshake
+2025-10-04 12:38:48,347 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 12:38:48,350 - __main__ - INFO - Initializing MCP client...
+2025-10-04 12:38:48,350 - mcp.client - INFO - Client main_client connecting to MCP server...
+2025-10-04 12:38:48,350 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:8080
+2025-10-04 12:38:58,350 - mcp.transport - ERROR - Failed to connect WebSocket client: timed out during opening handshake
+2025-10-04 12:38:58,350 - mcp.client - ERROR - Failed to connect transport
+2025-10-04 12:38:58,365 - __main__ - INFO - Initializing transport handlers...
+2025-10-04 12:38:58,367 - transport.websocket - INFO - Starting WebSocket server on localhost:8080
+2025-10-04 12:38:58,391 - transport.websocket - ERROR - Failed to start WebSocket server: [Errno 10048] error while attempting to bind on address ('127.0.0.1', 8080): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 107, in start
+    self.server = await websockets.serve(
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\websockets\asyncio\server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1571, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('127.0.0.1', 8080): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 12:38:58,402 - __main__ - ERROR - Initialization failed: [Errno 10048] error while attempting to bind on address ('127.0.0.1', 8080): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 112, in initialize
+    await self.websocket_handler.start()
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 107, in start
+    self.server = await websockets.serve(
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\websockets\asyncio\server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1571, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('127.0.0.1', 8080): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 12:47:56,366 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 12:47:56,369 - __main__ - INFO - Starting system initialization...
+2025-10-04 12:47:56,369 - __main__ - INFO - Initializing memory systems...
+2025-10-04 12:47:56,369 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 12:47:57,151 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 12:47:57,152 - __main__ - INFO - Starting system initialization...
+2025-10-04 12:47:57,152 - __main__ - INFO - Initializing memory systems...
+2025-10-04 12:47:57,152 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 12:47:58,425 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 12:47:58,438 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 12:47:58,441 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 12:47:58,441 - memory.manager - ERROR - Memory system initialization failed: Can't instantiate abstract class SemanticMemorySystem without an implementation for abstract method 'store'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\memory\consolidation.py", line 683, in initialize
+    self.semantic = SemanticMemorySystem()
+                    ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Can't instantiate abstract class SemanticMemorySystem without an implementation for abstract method 'store'
+2025-10-04 12:47:58,442 - __main__ - ERROR - Initialization failed: Memory manager initialization failed
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 73, in initialize
+    raise Exception("Memory manager initialization failed")
+Exception: Memory manager initialization failed
+2025-10-04 12:47:59,201 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 12:47:59,207 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 12:47:59,211 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 12:47:59,211 - memory.manager - ERROR - Memory system initialization failed: Can't instantiate abstract class SemanticMemorySystem without an implementation for abstract method 'store'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\memory\consolidation.py", line 683, in initialize
+    self.semantic = SemanticMemorySystem()
+                    ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Can't instantiate abstract class SemanticMemorySystem without an implementation for abstract method 'store'
+2025-10-04 12:47:59,217 - __main__ - ERROR - Initialization failed: Memory manager initialization failed
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 73, in initialize
+    raise Exception("Memory manager initialization failed")
+Exception: Memory manager initialization failed
+2025-10-04 12:56:50,806 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 12:56:50,807 - __main__ - INFO - Starting system initialization...
+2025-10-04 12:56:50,808 - __main__ - INFO - Initializing memory systems...
+2025-10-04 12:56:50,808 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 12:56:52,858 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 12:56:52,866 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 12:56:52,869 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 12:56:56,963 - memory.semantic - WARNING - Neo4j unavailable - semantic memory disabled: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 12:56:56,964 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 12:56:56,965 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 12:56:56,966 - __main__ - INFO - [OK] Memory systems initialized
+2025-10-04 12:56:56,966 - __main__ - INFO - Initializing MCP server...
+2025-10-04 12:56:56,967 - __main__ - ERROR - Initialization failed: MCPServer.__init__() got an unexpected keyword argument 'host'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 78, in initialize
+    self.mcp_server = MCPServer(
+                      ^^^^^^^^^^
+TypeError: MCPServer.__init__() got an unexpected keyword argument 'host'
+2025-10-04 13:06:04,981 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 13:06:04,983 - __main__ - INFO - Starting system initialization...
+2025-10-04 13:06:04,983 - __main__ - INFO - Initializing memory systems...
+2025-10-04 13:06:04,983 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 13:06:07,038 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 13:06:07,041 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 13:06:07,043 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 13:06:11,136 - memory.semantic - WARNING - Neo4j unavailable - semantic memory disabled: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 13:06:11,136 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 13:06:11,137 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 13:06:11,137 - __main__ - INFO - [OK] Memory systems initialized
+2025-10-04 13:06:11,138 - __main__ - INFO - Initializing MCP server...
+2025-10-04 13:06:11,174 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 13:06:11,181 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 13:06:11,181 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 13:06:11,183 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 13:06:11,205 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 13:06:11,206 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 13:06:11,209 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 13:06:11,209 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 13:06:11,210 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 13:06:11,211 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 13:06:11,211 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 13:06:15,272 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 13:06:15,273 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 13:06:15,273 - __main__ - INFO - [OK] MCP server initialized
+2025-10-04 13:06:15,274 - __main__ - INFO - Initializing MCP client...
+2025-10-04 13:06:15,274 - __main__ - ERROR - Initialization failed: MCPClient.__init__() got an unexpected keyword argument 'server_url'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 112, in initialize
+    self.mcp_client = MCPClient(
+                      ^^^^^^^^^^
+TypeError: MCPClient.__init__() got an unexpected keyword argument 'server_url'
+2025-10-04 13:13:43,178 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 13:13:43,179 - __main__ - INFO - Starting system initialization...
+2025-10-04 13:13:43,180 - __main__ - INFO - Initializing memory systems...
+2025-10-04 13:13:43,180 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 13:13:45,219 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 13:13:45,222 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 13:13:45,225 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 13:13:49,299 - memory.semantic - WARNING - Neo4j unavailable - semantic memory disabled: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 13:13:49,299 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 13:13:49,300 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 13:13:49,300 - __main__ - INFO - [OK] Memory systems initialized
+2025-10-04 13:13:49,300 - __main__ - INFO - Initializing MCP server...
+2025-10-04 13:13:49,313 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 13:13:49,318 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 13:13:49,320 - __main__ - ERROR - Initialization failed: cannot access local variable 'TransportConfig' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 94, in initialize
+    mcp_transport_config = TransportConfig(
+                           ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'TransportConfig' where it is not associated with a value
+2025-10-04 13:14:28,440 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 13:14:28,442 - __main__ - INFO - Starting system initialization...
+2025-10-04 13:14:28,442 - __main__ - INFO - Initializing memory systems...
+2025-10-04 13:14:28,442 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 13:14:30,485 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 13:14:30,493 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 13:14:30,498 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 13:14:34,597 - memory.semantic - WARNING - Neo4j unavailable - semantic memory disabled: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 13:14:34,598 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 13:14:34,598 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 13:14:34,599 - __main__ - INFO - [OK] Memory systems initialized
+2025-10-04 13:14:34,599 - __main__ - INFO - Initializing MCP server...
+2025-10-04 13:14:34,627 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 13:14:34,635 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 13:14:34,636 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 13:14:34,636 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 13:14:34,649 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 13:14:34,650 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 13:14:34,651 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 13:14:34,651 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 13:14:34,652 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 13:14:34,652 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 13:14:34,652 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 13:14:38,740 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 13:14:38,741 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 13:14:38,741 - __main__ - INFO - [OK] MCP server initialized
+2025-10-04 13:14:38,741 - __main__ - INFO - Initializing MCP client...
+2025-10-04 13:14:38,742 - mcp.client - INFO - Client main_client connecting to MCP server...
+2025-10-04 13:14:38,742 - mcp.transport - INFO - Connecting to WebSocket server at ws://ws://localhost:9001
+2025-10-04 13:14:46,031 - mcp.transport - ERROR - Failed to connect WebSocket client: [Errno 11001] getaddrinfo failed
+2025-10-04 13:14:46,032 - mcp.client - ERROR - Failed to connect transport
+2025-10-04 13:14:46,032 - __main__ - INFO - [OK] MCP client connected
+2025-10-04 13:14:46,032 - __main__ - INFO - Initializing transport handlers...
+2025-10-04 13:14:46,032 - transport.websocket - INFO - Starting WebSocket server on localhost:9002
+2025-10-04 13:14:46,035 - websockets.server - INFO - server listening on [::1]:9002
+2025-10-04 13:14:46,035 - websockets.server - INFO - server listening on 127.0.0.1:9002
+2025-10-04 13:14:46,035 - transport.websocket - INFO - WebSocket server started successfully
+2025-10-04 13:14:46,036 - __main__ - INFO - [OK] WebSocket handler started on port 9002
+2025-10-04 13:14:46,040 - __main__ - INFO - [OK] HTTP handler initialized
+2025-10-04 13:14:46,041 - __main__ - INFO - Initializing agents...
+2025-10-04 13:14:46,041 - __main__ - ERROR - Initialization failed: Can't instantiate abstract class LeadTriageAgent without an implementation for abstract methods '_initialize_agent_specific', '_process_handoff', 'process_task'
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 160, in initialize
+    self.lead_triage_agent = LeadTriageAgent(
+                             ^^^^^^^^^^^^^^^^
+TypeError: Can't instantiate abstract class LeadTriageAgent without an implementation for abstract methods '_initialize_agent_specific', '_process_handoff', 'process_task'
+2025-10-04 13:27:06,963 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 13:27:06,965 - __main__ - INFO - Starting system initialization...
+2025-10-04 13:27:06,965 - __main__ - INFO - Initializing memory systems...
+2025-10-04 13:27:06,965 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 13:27:09,021 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 13:27:09,023 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 13:27:09,025 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 13:27:13,111 - memory.semantic - WARNING - Neo4j unavailable - semantic memory disabled: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 13:27:13,112 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 13:27:13,113 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 13:27:13,113 - __main__ - INFO - [OK] Memory systems initialized
+2025-10-04 13:27:13,113 - __main__ - INFO - Initializing MCP server...
+2025-10-04 13:27:13,153 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 13:27:13,159 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 13:27:13,159 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 13:27:13,159 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 13:27:13,176 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 13:27:13,177 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 13:27:13,178 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 13:27:13,178 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 13:27:13,178 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 13:27:13,179 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 13:27:13,179 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 13:27:17,258 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 13:27:17,260 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 13:27:17,260 - __main__ - INFO - [OK] MCP server initialized
+2025-10-04 13:27:17,260 - __main__ - INFO - Initializing MCP client...
+2025-10-04 13:27:17,261 - mcp.client - INFO - Client main_client connecting to MCP server...
+2025-10-04 13:27:17,261 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 13:27:21,345 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 13:27:21,346 - mcp.client - ERROR - Failed to connect transport
+2025-10-04 13:27:21,347 - __main__ - INFO - [OK] MCP client connected
+2025-10-04 13:27:21,347 - __main__ - INFO - Initializing transport handlers...
+2025-10-04 13:27:21,348 - transport.websocket - INFO - Starting WebSocket server on localhost:9002
+2025-10-04 13:27:21,354 - transport.websocket - ERROR - Failed to start WebSocket server: [Errno 10048] error while attempting to bind on address ('::1', 9002, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 107, in start
+    self.server = await websockets.serve(
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\websockets\asyncio\server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1571, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('::1', 9002, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 13:27:21,390 - __main__ - WARNING - Port 9002 in use, trying alternative port 9003...
+2025-10-04 13:27:21,390 - transport.websocket - INFO - Starting WebSocket server on localhost:9003
+2025-10-04 13:27:21,392 - websockets.server - INFO - server listening on [::1]:9003
+2025-10-04 13:27:21,392 - websockets.server - INFO - server listening on 127.0.0.1:9003
+2025-10-04 13:27:21,392 - transport.websocket - INFO - WebSocket server started successfully
+2025-10-04 13:27:21,392 - __main__ - INFO - [OK] WebSocket handler started on port 9003
+2025-10-04 13:27:21,395 - __main__ - INFO - [OK] HTTP handler initialized
+2025-10-04 13:27:21,395 - __main__ - INFO - Skipping agent initialization - agents need implementation
+2025-10-04 13:27:21,395 - __main__ - INFO - [OK] Agent initialization skipped
+2025-10-04 13:27:21,396 - __main__ - INFO - ============================================================
+2025-10-04 13:27:21,396 - __main__ - INFO - System initialization completed successfully!
+2025-10-04 13:27:21,396 - __main__ - INFO - ============================================================
+2025-10-04 13:27:21,396 - __main__ - INFO - Marketing Multi-Agent System is now operational
+2025-10-04 13:27:21,396 - __main__ - INFO - API Server: http://localhost:8000
+2025-10-04 13:27:21,397 - __main__ - INFO - WebSocket: ws://localhost:9002 (or 9003)
+2025-10-04 13:27:21,397 - __main__ - INFO - Press CTRL+C to shutdown
+2025-10-04 13:28:23,194 - transport.http - INFO - Request 3eaad2c0-b8be-4739-a6fd-9b665f276fa6: GET /
+2025-10-04 13:28:23,196 - transport.http - INFO - Response 3eaad2c0-b8be-4739-a6fd-9b665f276fa6: 200 (1.00ms)
+2025-10-04 13:28:23,284 - transport.http - INFO - Request 0e5aaac8-469b-4a0c-baab-a1dd4959382e: GET /favicon.ico
+2025-10-04 13:28:23,287 - transport.http - INFO - Response 0e5aaac8-469b-4a0c-baab-a1dd4959382e: 404 (2.99ms)
+2025-10-04 13:28:44,394 - transport.http - INFO - Request b5e1f71c-22f7-4652-a046-59af93998657: GET /health
+2025-10-04 13:28:44,395 - transport.http - INFO - Response b5e1f71c-22f7-4652-a046-59af93998657: 200 (1.99ms)
+2025-10-04 13:28:58,874 - transport.http - INFO - Request 99c5df1f-9a92-463b-800e-0f8ddaf67ded: GET /agent/LT-001/status
+2025-10-04 13:28:58,874 - transport.http - INFO - Response 99c5df1f-9a92-463b-800e-0f8ddaf67ded: 200 (1.01ms)
+2025-10-04 13:30:45,842 - transport.http - INFO - Request 505952a6-0a68-4172-ad43-de900b17a56f: GET /.well-known/appspecific/com.chrome.devtools.json
+2025-10-04 13:30:45,843 - transport.http - INFO - Response 505952a6-0a68-4172-ad43-de900b17a56f: 404 (1.00ms)
+2025-10-04 13:31:06,670 - transport.http - INFO - Request f4c2b82e-4e08-4d01-91ca-02785ccbf0bb: POST /agent/invoke
+2025-10-04 13:31:06,677 - transport.http - INFO - Response f4c2b82e-4e08-4d01-91ca-02785ccbf0bb: 404 (7.52ms)
+2025-10-04 13:32:13,193 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 13:32:13,197 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 13:32:13,201 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 13:32:13,202 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 13:32:13,205 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 13:32:13,206 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 13:32:13,206 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 13:36:04,350 - transport.http - INFO - Request 55e372ea-55dc-413e-ae7f-10dc3e733c8c: GET /stats
+2025-10-04 13:36:04,365 - transport.http - INFO - Response 55e372ea-55dc-413e-ae7f-10dc3e733c8c: 200 (15.47ms)
+2025-10-04 13:36:48,388 - transport.http - INFO - Request 61b5553e-5773-4d87-9797-209936f2223b: POST /agent/invoke
+2025-10-04 13:36:48,391 - transport.http - INFO - Response 61b5553e-5773-4d87-9797-209936f2223b: 404 (3.16ms)
+2025-10-04 13:37:00,413 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 13:37:00,414 - __main__ - INFO - Starting system initialization...
+2025-10-04 13:37:00,414 - __main__ - INFO - Initializing memory systems...
+2025-10-04 13:37:00,415 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 13:37:02,471 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 13:37:02,483 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 13:37:02,485 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 13:37:06,579 - memory.semantic - WARNING - Neo4j unavailable - semantic memory disabled: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 13:37:06,579 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 13:37:06,579 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 13:37:06,579 - __main__ - INFO - [OK] Memory systems initialized
+2025-10-04 13:37:06,580 - __main__ - INFO - Initializing MCP server...
+2025-10-04 13:37:06,594 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 13:37:06,599 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 13:37:06,599 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 13:37:06,599 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 13:37:06,616 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 13:37:06,618 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 13:37:06,619 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 13:37:06,619 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 13:37:06,620 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 13:37:06,621 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 13:37:06,621 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 13:37:10,697 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 13:37:10,698 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 13:37:10,699 - __main__ - INFO - [OK] MCP server initialized
+2025-10-04 13:37:10,699 - __main__ - INFO - Initializing MCP client...
+2025-10-04 13:37:10,699 - mcp.client - INFO - Client main_client connecting to MCP server...
+2025-10-04 13:37:10,701 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 13:37:13,196 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 13:37:13,203 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 13:37:13,208 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 13:37:13,210 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 13:37:13,214 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 13:37:13,216 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 13:37:13,216 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 13:37:14,786 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 13:37:14,787 - mcp.client - ERROR - Failed to connect transport
+2025-10-04 13:37:14,787 - __main__ - INFO - [OK] MCP client connected
+2025-10-04 13:37:14,788 - __main__ - INFO - Initializing transport handlers...
+2025-10-04 13:37:14,788 - transport.websocket - INFO - Starting WebSocket server on localhost:9002
+2025-10-04 13:37:14,794 - transport.websocket - ERROR - Failed to start WebSocket server: [Errno 10048] error while attempting to bind on address ('::1', 9002, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 107, in start
+    self.server = await websockets.serve(
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\websockets\asyncio\server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1571, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('::1', 9002, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 13:37:14,800 - __main__ - WARNING - Port 9002 in use, trying alternative port 9003...
+2025-10-04 13:37:14,801 - transport.websocket - INFO - Starting WebSocket server on localhost:9003
+2025-10-04 13:37:14,803 - transport.websocket - ERROR - Failed to start WebSocket server: [Errno 10048] error while attempting to bind on address ('127.0.0.1', 9003): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 107, in start
+    self.server = await websockets.serve(
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\websockets\asyncio\server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1571, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('127.0.0.1', 9003): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 13:37:14,805 - __main__ - ERROR - Initialization failed: [Errno 10048] error while attempting to bind on address ('127.0.0.1', 9003): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\main.py", line 147, in initialize
+    await self.websocket_handler.start()
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 107, in start
+    self.server = await websockets.serve(
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\websockets\asyncio\server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1571, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('127.0.0.1', 9003): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 13:42:13,218 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 13:42:13,231 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 13:42:13,236 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 13:42:13,237 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 13:42:13,240 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 13:42:13,241 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 13:42:13,241 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 13:47:13,251 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 13:47:13,256 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 13:47:13,260 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 13:47:13,261 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 13:47:13,263 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 13:47:13,263 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 13:47:13,264 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 13:50:43,213 - marketing-multi-agent-system.main - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 13:50:58,476 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 13:50:58,477 - __main__ - INFO - Starting system initialization...
+2025-10-04 13:50:58,477 - __main__ - INFO - Initializing memory systems...
+2025-10-04 13:50:58,477 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 13:51:00,530 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 13:51:00,543 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 13:51:00,545 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 13:51:04,638 - memory.semantic - WARNING - Neo4j unavailable - semantic memory disabled: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 13:51:04,638 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 13:51:04,638 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 13:51:04,640 - __main__ - INFO - [OK] Memory systems initialized
+2025-10-04 13:51:04,640 - __main__ - INFO - Initializing MCP server...
+2025-10-04 13:51:04,656 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 13:51:04,662 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 13:51:04,662 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 13:51:04,663 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 13:51:04,692 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 13:51:04,696 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 13:51:04,696 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 13:51:04,698 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 13:51:04,699 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 13:51:04,702 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 13:51:04,707 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 13:51:08,778 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 13:51:08,778 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 13:51:08,778 - __main__ - INFO - [OK] MCP server initialized
+2025-10-04 13:51:08,778 - __main__ - INFO - Initializing MCP client...
+2025-10-04 13:51:08,778 - mcp.client - INFO - Client main_client connecting to MCP server...
+2025-10-04 13:51:08,779 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 13:51:12,861 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 13:51:12,861 - mcp.client - ERROR - Failed to connect transport
+2025-10-04 13:51:12,861 - __main__ - INFO - [OK] MCP client connected
+2025-10-04 13:51:12,861 - __main__ - INFO - Initializing transport handlers...
+2025-10-04 13:51:12,861 - transport.websocket - INFO - Starting WebSocket server on localhost:9002
+2025-10-04 13:51:12,864 - transport.websocket - ERROR - Failed to start WebSocket server: [Errno 10048] error while attempting to bind on address ('127.0.0.1', 9002): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 107, in start
+    self.server = await websockets.serve(
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\websockets\asyncio\server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1571, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('127.0.0.1', 9002): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 13:51:12,870 - __main__ - WARNING - Port 9002 in use, trying next port...
+2025-10-04 13:51:12,870 - transport.websocket - INFO - Starting WebSocket server on localhost:9003
+2025-10-04 13:51:12,872 - transport.websocket - ERROR - Failed to start WebSocket server: [Errno 10048] error while attempting to bind on address ('::1', 9003, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 107, in start
+    self.server = await websockets.serve(
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\websockets\asyncio\server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1571, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('::1', 9003, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 13:51:12,873 - __main__ - WARNING - Port 9003 in use, trying next port...
+2025-10-04 13:51:12,873 - transport.websocket - INFO - Starting WebSocket server on localhost:9004
+2025-10-04 13:51:12,874 - websockets.server - INFO - server listening on [::1]:9004
+2025-10-04 13:51:12,874 - websockets.server - INFO - server listening on 127.0.0.1:9004
+2025-10-04 13:51:12,874 - transport.websocket - INFO - WebSocket server started successfully
+2025-10-04 13:51:12,875 - __main__ - INFO - [OK] WebSocket handler started on port 9004
+2025-10-04 13:51:12,882 - transport.http - INFO - Registered handler for method: test
+2025-10-04 13:51:12,885 - transport.http - INFO - Registered handler for method: get_system_status
+2025-10-04 13:51:12,887 - transport.http - INFO - Registered handler for method: triage_lead
+2025-10-04 13:51:12,892 - __main__ - INFO - Registered test handlers: test, get_system_status, triage_lead
+2025-10-04 13:51:12,895 - __main__ - INFO - [OK] HTTP handler initialized
+2025-10-04 13:51:12,895 - __main__ - INFO - Skipping agent initialization - agents need implementation
+2025-10-04 13:51:12,896 - __main__ - INFO - [OK] Agent initialization skipped
+2025-10-04 13:51:12,896 - __main__ - INFO - ============================================================
+2025-10-04 13:51:12,897 - __main__ - INFO - System initialization completed successfully!
+2025-10-04 13:51:12,897 - __main__ - INFO - ============================================================
+2025-10-04 13:51:12,897 - __main__ - INFO - Marketing Multi-Agent System is now operational
+2025-10-04 13:51:12,897 - __main__ - INFO - API Server: http://localhost:8000
+2025-10-04 13:51:12,897 - __main__ - INFO - WebSocket: ws://localhost:9002 (or 9003)
+2025-10-04 13:51:12,897 - __main__ - INFO - Press CTRL+C to shutdown
+2025-10-04 13:51:12,998 - __main__ - INFO - Initiating graceful shutdown...
+2025-10-04 13:51:12,998 - __main__ - INFO - [OK] Agents stopped
+2025-10-04 13:51:13,003 - transport.websocket - INFO - Stopping WebSocket server...
+2025-10-04 13:51:13,007 - websockets.server - INFO - server closing
+2025-10-04 13:51:13,008 - websockets.server - INFO - server closed
+2025-10-04 13:51:13,009 - transport.websocket - INFO - WebSocket server stopped
+2025-10-04 13:51:13,010 - __main__ - INFO - [OK] Transport handlers stopped
+2025-10-04 13:51:13,011 - mcp.client - INFO - Client main_client disconnecting...
+2025-10-04 13:51:13,015 - mcp.transport - INFO - WebSocket client disconnected
+2025-10-04 13:51:13,019 - mcp.client - INFO - Client main_client disconnected
+2025-10-04 13:51:13,021 - mcp.server - INFO - Stopping MCP Server...
+2025-10-04 13:51:13,021 - mcp.transport - INFO - WebSocket client disconnected
+2025-10-04 13:51:13,021 - mcp.server - INFO - MCP Server stopped
+2025-10-04 13:51:13,022 - __main__ - INFO - [OK] MCP server/client stopped
+2025-10-04 13:51:13,023 - memory.manager - INFO - Shutting down memory systems...
+2025-10-04 13:51:13,023 - memory.consolidation - INFO - Memory consolidation engine stopped
+2025-10-04 13:51:13,024 - memory.short_term - INFO - Short-term memory connection closed
+2025-10-04 13:51:13,037 - memory.long_term - INFO - Long-term memory connection closed
+2025-10-04 13:51:13,039 - memory.episodic - INFO - Episodic memory connection closed
+2025-10-04 13:51:13,039 - memory.semantic - INFO - Semantic memory connection closed
+2025-10-04 13:51:13,040 - memory.manager - INFO - Memory systems shutdown complete
+2025-10-04 13:51:13,040 - __main__ - INFO - [OK] Memory systems closed
+2025-10-04 13:51:13,040 - __main__ - INFO - ============================================================
+2025-10-04 13:51:13,041 - __main__ - INFO - Shutdown completed successfully
+2025-10-04 13:51:13,042 - __main__ - INFO - ============================================================
+2025-10-04 13:52:13,281 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 13:52:13,287 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 13:52:13,291 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 13:52:13,291 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 13:52:13,293 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 13:52:13,294 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 13:52:13,294 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 14:00:22,793 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 14:00:22,878 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 14:00:22,932 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 14:00:22,949 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 14:00:22,972 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 14:00:22,990 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 14:00:23,010 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 14:05:23,033 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 14:05:23,035 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 14:05:23,038 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 14:05:23,040 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 14:05:23,041 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 14:05:23,042 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 14:05:23,043 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 14:10:23,067 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 14:10:23,068 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 14:10:23,070 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 14:10:23,071 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 14:10:23,073 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 14:10:23,074 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 14:10:23,076 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 14:15:23,064 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 14:15:23,068 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 14:15:23,070 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 14:15:23,071 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 14:15:23,073 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 14:15:23,075 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 14:15:23,075 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 14:20:23,076 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 14:20:23,078 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 14:20:23,079 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 14:20:23,081 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 14:20:23,082 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 14:20:23,084 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 14:20:23,086 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 14:25:23,103 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 14:25:23,104 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 14:25:23,110 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 14:25:23,112 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 14:25:23,113 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 14:25:23,114 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 14:25:23,115 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 14:30:23,120 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 14:30:23,121 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 14:30:23,122 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 14:30:23,123 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 14:30:23,124 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 14:30:23,124 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 14:30:23,124 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 14:35:23,127 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 14:35:23,128 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 14:35:23,130 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 14:35:23,131 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 14:35:23,133 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 14:35:23,134 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 14:35:23,134 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 14:40:50,018 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 14:40:50,018 - __main__ - INFO - Starting system initialization...
+2025-10-04 14:40:50,019 - __main__ - INFO - Initializing memory systems...
+2025-10-04 14:40:50,019 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 14:40:52,068 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 14:40:52,088 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 14:40:52,094 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 14:40:56,179 - memory.semantic - WARNING - Neo4j unavailable - semantic memory disabled: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 14:40:56,180 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 14:40:56,180 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 14:40:56,182 - __main__ - INFO - [OK] Memory systems initialized
+2025-10-04 14:40:56,182 - __main__ - INFO - Initializing MCP server...
+2025-10-04 14:40:56,228 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 14:40:56,235 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 14:40:56,235 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 14:40:56,235 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 14:40:56,257 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 14:40:56,258 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 14:40:56,260 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 14:40:56,260 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 14:40:56,261 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 14:40:56,262 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 14:40:56,262 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 14:41:00,356 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 14:41:00,358 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 14:41:00,360 - __main__ - INFO - [OK] MCP server initialized
+2025-10-04 14:41:00,360 - __main__ - INFO - Initializing MCP client...
+2025-10-04 14:41:00,360 - mcp.client - INFO - Client main_client connecting to MCP server...
+2025-10-04 14:41:00,362 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 14:41:04,428 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 14:41:04,429 - mcp.client - ERROR - Failed to connect transport
+2025-10-04 14:41:04,429 - __main__ - INFO - [OK] MCP client connected
+2025-10-04 14:41:04,429 - __main__ - INFO - Initializing transport handlers...
+2025-10-04 14:41:04,429 - transport.websocket - INFO - Starting WebSocket server on localhost:9002
+2025-10-04 14:41:04,440 - transport.websocket - ERROR - Failed to start WebSocket server: [Errno 10048] error while attempting to bind on address ('::1', 9002, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 107, in start
+    self.server = await websockets.serve(
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\websockets\asyncio\server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1571, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('::1', 9002, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 14:41:04,449 - __main__ - WARNING - Port 9002 in use, trying next port...
+2025-10-04 14:41:04,450 - transport.websocket - INFO - Starting WebSocket server on localhost:9003
+2025-10-04 14:41:04,452 - websockets.server - INFO - server listening on 127.0.0.1:9003
+2025-10-04 14:41:04,452 - websockets.server - INFO - server listening on [::1]:9003
+2025-10-04 14:41:04,454 - transport.websocket - INFO - WebSocket server started successfully
+2025-10-04 14:41:04,460 - __main__ - INFO - [OK] WebSocket handler started on port 9003
+2025-10-04 14:41:04,464 - transport.http - INFO - Registered handler for method: test
+2025-10-04 14:41:04,466 - transport.http - INFO - Registered handler for method: get_system_status
+2025-10-04 14:41:04,466 - transport.http - INFO - Registered handler for method: triage_lead
+2025-10-04 14:41:04,466 - __main__ - INFO - Registered test handlers: test, get_system_status, triage_lead
+2025-10-04 14:41:04,466 - __main__ - INFO - [OK] HTTP handler initialized
+2025-10-04 14:41:04,466 - __main__ - INFO - Skipping agent initialization - agents need implementation
+2025-10-04 14:41:04,466 - __main__ - INFO - [OK] Agent initialization skipped
+2025-10-04 14:41:04,467 - __main__ - INFO - ============================================================
+2025-10-04 14:41:04,467 - __main__ - INFO - System initialization completed successfully!
+2025-10-04 14:41:04,467 - __main__ - INFO - ============================================================
+2025-10-04 14:41:04,467 - __main__ - INFO - Marketing Multi-Agent System is now operational
+2025-10-04 14:41:04,468 - __main__ - INFO - API Server: http://localhost:8000
+2025-10-04 14:41:04,468 - __main__ - INFO - WebSocket: ws://localhost:9002 (or 9003)
+2025-10-04 14:41:04,468 - __main__ - INFO - Press CTRL+C to shutdown
+2025-10-04 14:45:56,299 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 14:45:56,334 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 14:45:56,346 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 14:45:56,346 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 14:45:56,355 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 14:45:56,358 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 14:45:56,358 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 14:50:56,381 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 14:50:56,385 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 14:50:56,393 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 14:50:56,394 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 14:50:56,395 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 14:50:56,396 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 14:50:56,396 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 14:55:56,403 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 14:55:56,403 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 14:55:56,405 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 14:55:56,405 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 14:55:56,406 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 14:55:56,408 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 14:55:56,421 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 15:00:56,433 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 15:00:56,434 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 15:00:56,440 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 15:00:56,442 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 15:00:56,443 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 15:00:56,445 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 15:00:56,445 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 18:01:27,403 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 18:01:27,404 - __main__ - INFO - Initializing memory systems...
+2025-10-04 18:01:27,404 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 18:01:29,488 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 18:01:29,501 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 18:01:29,505 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 18:01:33,583 - memory.semantic - WARNING - Neo4j unavailable - semantic memory disabled: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 18:01:33,585 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 18:01:33,586 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 18:01:33,586 - __main__ - INFO - [OK] Memory systems initialized
+2025-10-04 18:01:33,586 - __main__ - INFO - Initializing MCP server...
+2025-10-04 18:01:33,625 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 18:01:33,630 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 18:01:33,633 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 18:01:33,634 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 18:01:33,654 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 18:01:33,655 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 18:01:33,657 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 18:01:33,657 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 18:01:33,658 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 18:01:33,658 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 18:01:33,659 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 18:01:37,716 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 18:01:37,717 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 18:01:37,718 - __main__ - INFO - [OK] MCP server initialized
+2025-10-04 18:01:37,718 - __main__ - INFO - Initializing MCP client...
+2025-10-04 18:01:37,719 - mcp.client - INFO - Client main_client connecting to MCP server...
+2025-10-04 18:01:37,719 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 18:01:41,794 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 18:01:41,795 - mcp.client - ERROR - Failed to connect transport
+2025-10-04 18:01:41,795 - __main__ - INFO - [OK] MCP client connected
+2025-10-04 18:01:41,795 - __main__ - INFO - Initializing transport handlers...
+2025-10-04 18:01:41,796 - transport.websocket - INFO - Starting WebSocket server on localhost:9002
+2025-10-04 18:01:41,808 - websockets.server - INFO - server listening on 127.0.0.1:9002
+2025-10-04 18:01:41,808 - websockets.server - INFO - server listening on [::1]:9002
+2025-10-04 18:01:41,809 - transport.websocket - INFO - WebSocket server started successfully
+2025-10-04 18:01:41,810 - __main__ - INFO - [OK] WebSocket handler started on port 9002
+2025-10-04 18:01:41,818 - transport.http - INFO - Registered handler for method: test
+2025-10-04 18:01:41,818 - transport.http - INFO - Registered handler for method: get_system_status
+2025-10-04 18:01:41,819 - transport.http - INFO - Registered handler for method: triage_lead
+2025-10-04 18:01:41,819 - __main__ - INFO - Registered test handlers: test, get_system_status, triage_lead
+2025-10-04 18:01:41,819 - __main__ - INFO - [OK] HTTP handler initialized
+2025-10-04 18:01:41,820 - __main__ - INFO - Skipping agent initialization - agents need implementation
+2025-10-04 18:01:41,820 - __main__ - INFO - [OK] Agent initialization skipped
+2025-10-04 18:01:41,821 - __main__ - INFO - ============================================================
+2025-10-04 18:01:41,821 - __main__ - INFO - System initialization completed successfully!
+2025-10-04 18:01:41,821 - __main__ - INFO - ============================================================
+2025-10-04 18:01:41,821 - __main__ - INFO - Marketing Multi-Agent System is now operational
+2025-10-04 18:01:41,823 - __main__ - INFO - API Server: http://localhost:8000
+2025-10-04 18:01:41,823 - __main__ - INFO - WebSocket: ws://localhost:9002 (or 9003)
+2025-10-04 18:01:41,823 - __main__ - INFO - Press CTRL+C to shutdown
+2025-10-04 18:02:11,134 - transport.http - INFO - Request de664610-cc55-4b7a-a0f1-2e3b62c8496b: GET /
+2025-10-04 18:02:11,136 - transport.http - INFO - Response de664610-cc55-4b7a-a0f1-2e3b62c8496b: 200 (3.01ms)
+2025-10-04 18:02:36,227 - transport.http - INFO - Request 3a67dc2f-9725-44a2-b28a-fc7f67548d6a: GET /health
+2025-10-04 18:02:36,229 - transport.http - INFO - Response 3a67dc2f-9725-44a2-b28a-fc7f67548d6a: 200 (1.99ms)
+2025-10-04 18:02:49,749 - transport.http - INFO - Request cd5bf030-d482-4239-9190-35ab622147df: GET /agent/LT-001/status
+2025-10-04 18:02:49,872 - transport.http - INFO - Response cd5bf030-d482-4239-9190-35ab622147df: 200 (122.59ms)
+2025-10-04 18:03:00,211 - transport.http - INFO - Request 81436ddc-b6ee-4a18-9aa8-e8b98dff44a3: GET /stats
+2025-10-04 18:03:00,220 - transport.http - INFO - Response 81436ddc-b6ee-4a18-9aa8-e8b98dff44a3: 200 (9.73ms)
+2025-10-04 18:06:33,667 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 18:06:33,700 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 18:06:33,721 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 18:06:33,723 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 18:06:33,728 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 18:06:33,731 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 18:06:33,731 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 18:07:42,092 - transport.http - INFO - Request 1841a52a-377a-4783-bf3f-234989ad2bff: GET /health
+2025-10-04 18:07:42,097 - transport.http - INFO - Response 1841a52a-377a-4783-bf3f-234989ad2bff: 200 (4.96ms)
+2025-10-04 18:07:49,747 - transport.http - INFO - Request a2915766-fbd3-417d-bcfd-98daba474b62: GET /stats
+2025-10-04 18:07:49,747 - transport.http - INFO - Response a2915766-fbd3-417d-bcfd-98daba474b62: 200 (0.00ms)
+2025-10-04 18:11:33,754 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 18:11:33,755 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 18:11:33,768 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 18:11:33,771 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 18:11:33,772 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 18:11:33,776 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 18:11:33,778 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 18:25:33,056 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 18:25:33,090 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 18:25:33,329 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 18:25:33,572 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 18:25:33,621 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 18:25:33,622 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 18:25:33,622 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 18:27:14,730 - transport.http - INFO - Request ad1bc21f-a40d-43bb-86b5-adbd41b8db9e: POST /agent/invoke
+2025-10-04 18:27:14,867 - transport.http - INFO - Response ad1bc21f-a40d-43bb-86b5-adbd41b8db9e: 200 (139.02ms)
+2025-10-04 18:27:23,194 - transport.http - INFO - Request 0b51d3b1-826e-41f4-9432-1ef4d65ef5aa: GET /health
+2025-10-04 18:27:23,194 - transport.http - INFO - Response 0b51d3b1-826e-41f4-9432-1ef4d65ef5aa: 200 (0.00ms)
+2025-10-04 18:27:37,091 - transport.http - INFO - Request 78a7a6e7-0b88-4774-863d-8c9e8ad25332: GET /stats
+2025-10-04 18:27:37,091 - transport.http - INFO - Response 78a7a6e7-0b88-4774-863d-8c9e8ad25332: 200 (0.51ms)
+2025-10-04 18:27:46,758 - transport.http - INFO - Request aaabb78d-6899-4b88-92b2-9991aa2b3ebc: POST /test
+2025-10-04 18:27:46,760 - transport.http - INFO - Response aaabb78d-6899-4b88-92b2-9991aa2b3ebc: 404 (2.21ms)
+2025-10-04 18:29:23,877 - transport.http - INFO - Request 5fced738-7e2a-422c-bb05-de940d8a753d: POST /agent/invoke
+2025-10-04 18:29:23,880 - transport.http - INFO - Response 5fced738-7e2a-422c-bb05-de940d8a753d: 200 (2.62ms)
+2025-10-04 18:30:33,632 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 18:30:33,640 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 18:30:33,650 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 18:30:33,651 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 18:30:33,652 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 18:30:33,655 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 18:30:33,655 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 18:30:35,280 - transport.http - INFO - Request 42343d35-549d-4108-8823-e73f6bdd5ce5: POST /agent/invoke
+2025-10-04 18:30:35,283 - transport.http - INFO - Response 42343d35-549d-4108-8823-e73f6bdd5ce5: 200 (3.17ms)
+2025-10-04 18:30:44,142 - transport.http - INFO - Request c38dfa5d-89f8-4048-bd18-2ab16d7c7560: GET /agent/test-agent/status
+2025-10-04 18:30:44,146 - transport.http - INFO - Response c38dfa5d-89f8-4048-bd18-2ab16d7c7560: 200 (4.49ms)
+2025-10-04 18:32:51,228 - transport.http - INFO - Request 5dce0900-52f1-4379-b086-2bb12db7faac: GET /
+2025-10-04 18:32:51,230 - transport.http - INFO - Response 5dce0900-52f1-4379-b086-2bb12db7faac: 200 (1.63ms)
+2025-10-04 18:35:33,695 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 18:35:33,699 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 18:35:33,723 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 18:35:33,724 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 18:35:33,726 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 18:35:33,732 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 18:35:33,732 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 18:40:33,750 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 18:40:33,751 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 18:40:33,751 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 18:40:33,752 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 18:40:33,752 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 18:40:33,753 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 18:40:33,753 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 18:45:33,758 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 18:45:33,761 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 18:45:33,761 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 18:45:33,762 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 18:45:33,763 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 18:45:33,763 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 18:45:33,763 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 18:50:33,775 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 18:50:33,779 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 18:50:33,783 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 18:50:33,784 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 18:50:33,786 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 18:50:33,787 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 18:50:33,789 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 18:55:33,814 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 18:55:33,816 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 18:55:33,817 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 18:55:33,817 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 18:55:33,818 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 18:55:33,818 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 18:55:33,819 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 19:00:00,852 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 19:00:00,852 - __main__ - INFO - Initializing memory systems...
+2025-10-04 19:00:00,852 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 19:00:02,920 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 19:00:02,936 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 19:00:02,941 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 19:00:07,027 - memory.semantic - WARNING - Neo4j unavailable - semantic memory disabled: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 19:00:07,030 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 19:00:07,031 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 19:00:07,031 - __main__ - INFO - [OK] Memory systems initialized
+2025-10-04 19:00:07,031 - __main__ - INFO - Initializing MCP server...
+2025-10-04 19:00:07,066 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 19:00:07,122 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 19:00:07,122 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 19:00:07,123 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 19:00:07,140 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 19:00:07,141 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 19:00:07,145 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 19:00:07,146 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 19:00:07,146 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 19:00:07,147 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 19:00:07,148 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 19:00:11,218 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 19:00:11,219 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 19:00:11,219 - __main__ - INFO - [OK] MCP server initialized
+2025-10-04 19:00:11,219 - __main__ - INFO - Initializing MCP client...
+2025-10-04 19:00:11,219 - mcp.client - INFO - Client main_client connecting to MCP server...
+2025-10-04 19:00:11,220 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 19:00:15,284 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 19:00:15,285 - mcp.client - ERROR - Failed to connect transport
+2025-10-04 19:00:15,285 - __main__ - INFO - [OK] MCP client connected
+2025-10-04 19:00:15,285 - __main__ - INFO - Initializing transport handlers...
+2025-10-04 19:00:15,285 - transport.websocket - INFO - Starting WebSocket server on localhost:9002
+2025-10-04 19:00:15,288 - transport.websocket - ERROR - Failed to start WebSocket server: [Errno 10048] error while attempting to bind on address ('::1', 9002, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 107, in start
+    self.server = await websockets.serve(
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\websockets\asyncio\server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1571, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('::1', 9002, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 19:00:15,295 - __main__ - WARNING - Port 9002 in use, trying next port...
+2025-10-04 19:00:15,296 - transport.websocket - INFO - Starting WebSocket server on localhost:9003
+2025-10-04 19:00:15,298 - websockets.server - INFO - server listening on 127.0.0.1:9003
+2025-10-04 19:00:15,298 - websockets.server - INFO - server listening on [::1]:9003
+2025-10-04 19:00:15,298 - transport.websocket - INFO - WebSocket server started successfully
+2025-10-04 19:00:15,298 - __main__ - INFO - [OK] WebSocket handler started on port 9003
+2025-10-04 19:00:15,300 - transport.http - INFO - Registered handler for method: test
+2025-10-04 19:00:15,301 - transport.http - INFO - Registered handler for method: get_system_status
+2025-10-04 19:00:15,301 - transport.http - INFO - Registered handler for method: triage_lead
+2025-10-04 19:00:15,301 - __main__ - INFO - Registered test handlers: test, get_system_status, triage_lead
+2025-10-04 19:00:15,302 - __main__ - INFO - [OK] HTTP handler initialized
+2025-10-04 19:00:15,302 - __main__ - INFO - Skipping agent initialization - agents need implementation
+2025-10-04 19:00:15,302 - __main__ - INFO - [OK] Agent initialization skipped
+2025-10-04 19:00:15,302 - __main__ - INFO - ============================================================
+2025-10-04 19:00:15,302 - __main__ - INFO - System initialization completed successfully!
+2025-10-04 19:00:15,302 - __main__ - INFO - ============================================================
+2025-10-04 19:00:15,302 - __main__ - INFO - Marketing Multi-Agent System is now operational
+2025-10-04 19:00:15,302 - __main__ - INFO - API Server: http://localhost:8000
+2025-10-04 19:00:15,302 - __main__ - INFO - WebSocket: ws://localhost:9002 (or 9003)
+2025-10-04 19:00:15,302 - __main__ - INFO - Press CTRL+C to shutdown
+2025-10-04 19:00:15,439 - __main__ - INFO - Initiating graceful shutdown...
+2025-10-04 19:00:15,440 - __main__ - INFO - [OK] Agents stopped
+2025-10-04 19:00:15,440 - transport.websocket - INFO - Stopping WebSocket server...
+2025-10-04 19:00:15,440 - websockets.server - INFO - server closing
+2025-10-04 19:00:15,443 - websockets.server - INFO - server closed
+2025-10-04 19:00:15,445 - transport.websocket - INFO - WebSocket server stopped
+2025-10-04 19:00:15,445 - __main__ - INFO - [OK] Transport handlers stopped
+2025-10-04 19:00:15,446 - mcp.client - INFO - Client main_client disconnecting...
+2025-10-04 19:00:15,446 - mcp.transport - INFO - WebSocket client disconnected
+2025-10-04 19:00:15,446 - mcp.client - INFO - Client main_client disconnected
+2025-10-04 19:00:15,446 - mcp.server - INFO - Stopping MCP Server...
+2025-10-04 19:00:15,446 - mcp.transport - INFO - WebSocket client disconnected
+2025-10-04 19:00:15,446 - mcp.server - INFO - MCP Server stopped
+2025-10-04 19:00:15,446 - __main__ - INFO - [OK] MCP server/client stopped
+2025-10-04 19:00:15,447 - memory.manager - INFO - Shutting down memory systems...
+2025-10-04 19:00:15,447 - memory.consolidation - INFO - Memory consolidation engine stopped
+2025-10-04 19:00:15,447 - memory.short_term - INFO - Short-term memory connection closed
+2025-10-04 19:00:15,449 - memory.long_term - INFO - Long-term memory connection closed
+2025-10-04 19:00:15,450 - memory.episodic - INFO - Episodic memory connection closed
+2025-10-04 19:00:15,450 - memory.semantic - INFO - Semantic memory connection closed
+2025-10-04 19:00:15,451 - memory.manager - INFO - Memory systems shutdown complete
+2025-10-04 19:00:15,451 - __main__ - INFO - [OK] Memory systems closed
+2025-10-04 19:00:15,451 - __main__ - INFO - ============================================================
+2025-10-04 19:00:15,451 - __main__ - INFO - Shutdown completed successfully
+2025-10-04 19:00:15,451 - __main__ - INFO - ============================================================
+2025-10-04 19:00:33,816 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 19:00:33,817 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 19:00:33,818 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 19:00:33,818 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 19:00:33,820 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 19:00:33,820 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 19:00:33,820 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 19:05:31,275 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 19:05:31,275 - __main__ - INFO - Initializing memory systems...
+2025-10-04 19:05:31,275 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 19:05:33,334 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 19:05:33,343 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 19:05:33,346 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 19:05:37,427 - memory.semantic - WARNING - Neo4j unavailable - semantic memory disabled: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 19:05:37,428 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 19:05:37,428 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 19:05:37,428 - __main__ - INFO - [OK] Memory systems initialized
+2025-10-04 19:05:37,428 - __main__ - INFO - Initializing MCP server...
+2025-10-04 19:05:37,445 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 19:05:37,452 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 19:05:37,452 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 19:05:37,452 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 19:05:37,477 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 19:05:37,478 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 19:05:37,480 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 19:05:37,480 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 19:05:37,480 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 19:05:37,482 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 19:05:37,482 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 19:05:41,563 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 19:05:41,563 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 19:05:41,563 - __main__ - INFO - [OK] MCP server initialized
+2025-10-04 19:05:41,563 - __main__ - INFO - Initializing MCP client...
+2025-10-04 19:05:41,563 - mcp.client - INFO - Client main_client connecting to MCP server...
+2025-10-04 19:05:41,563 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 19:05:45,630 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 19:05:45,631 - mcp.client - ERROR - Failed to connect transport
+2025-10-04 19:05:45,631 - __main__ - INFO - [OK] MCP client connected
+2025-10-04 19:05:45,631 - __main__ - INFO - Initializing transport handlers...
+2025-10-04 19:05:45,631 - transport.websocket - INFO - Starting WebSocket server on localhost:9002
+2025-10-04 19:05:45,634 - websockets.server - INFO - server listening on [::1]:9002
+2025-10-04 19:05:45,637 - websockets.server - INFO - server listening on 127.0.0.1:9002
+2025-10-04 19:05:45,643 - transport.websocket - INFO - WebSocket server started successfully
+2025-10-04 19:05:45,645 - __main__ - INFO - [OK] WebSocket handler started on port 9002
+2025-10-04 19:05:45,648 - transport.http - INFO - Registered handler for method: test
+2025-10-04 19:05:45,650 - transport.http - INFO - Registered handler for method: get_system_status
+2025-10-04 19:05:45,650 - transport.http - INFO - Registered handler for method: triage_lead
+2025-10-04 19:05:45,650 - __main__ - INFO - Registered test handlers: test, get_system_status, triage_lead
+2025-10-04 19:05:45,650 - __main__ - INFO - [OK] HTTP handler initialized
+2025-10-04 19:05:45,650 - __main__ - INFO - Skipping agent initialization - agents need implementation
+2025-10-04 19:05:45,650 - __main__ - INFO - [OK] Agent initialization skipped
+2025-10-04 19:05:45,651 - __main__ - INFO - ============================================================
+2025-10-04 19:05:45,651 - __main__ - INFO - System initialization completed successfully!
+2025-10-04 19:05:45,651 - __main__ - INFO - ============================================================
+2025-10-04 19:05:45,651 - __main__ - INFO - Marketing Multi-Agent System is now operational
+2025-10-04 19:05:45,651 - __main__ - INFO - API Server: http://localhost:8000
+2025-10-04 19:05:45,651 - __main__ - INFO - WebSocket: ws://localhost:9002 (or 9003)
+2025-10-04 19:05:45,651 - __main__ - INFO - Press CTRL+C to shutdown
+2025-10-04 19:10:37,493 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 19:10:37,495 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 19:10:37,497 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 19:10:37,498 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 19:10:37,499 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 19:10:37,504 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 19:10:37,505 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 19:15:37,508 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 19:15:37,510 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 19:15:37,512 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 19:15:37,513 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 19:15:37,514 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 19:15:37,516 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 19:15:37,516 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 19:20:37,536 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 19:20:37,537 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 19:20:37,537 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 19:20:37,539 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 19:20:37,539 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 19:20:37,540 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 19:20:37,540 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 19:24:36,469 - transport.http - INFO - Request 7e63cb2a-a2cb-4613-b66f-fd70950c116a: POST /agent/invoke
+2025-10-04 19:24:36,501 - transport.http - INFO - Response 7e63cb2a-a2cb-4613-b66f-fd70950c116a: 200 (34.55ms)
+2025-10-04 19:25:37,554 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 19:25:37,556 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 19:25:37,557 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 19:25:37,557 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 19:25:37,558 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 19:25:37,558 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 19:25:37,558 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 19:26:08,079 - transport.http - INFO - Request 29bea4da-a6f4-4341-b896-683254887b90: GET /
+2025-10-04 19:26:08,080 - transport.http - INFO - Response 29bea4da-a6f4-4341-b896-683254887b90: 200 (1.00ms)
+2025-10-04 19:26:18,041 - transport.http - INFO - Request b5e95d60-ca47-46be-adab-e44714cdd383: GET /health
+2025-10-04 19:26:18,042 - transport.http - INFO - Response b5e95d60-ca47-46be-adab-e44714cdd383: 200 (1.50ms)
+2025-10-04 19:26:25,248 - transport.http - INFO - Request 9336e9f5-1008-474e-93e6-5b22207d19cb: POST /agent/invoke
+2025-10-04 19:26:25,250 - transport.http - INFO - Response 9336e9f5-1008-474e-93e6-5b22207d19cb: 200 (1.99ms)
+2025-10-04 19:26:33,424 - transport.http - INFO - Request cd5c5a94-0a92-4b9e-9f85-132f6ab4ab99: POST /agent/invoke
+2025-10-04 19:26:33,426 - transport.http - INFO - Response cd5c5a94-0a92-4b9e-9f85-132f6ab4ab99: 200 (2.04ms)
+2025-10-04 19:26:42,497 - transport.http - INFO - Request b62beb6b-fd87-4794-b671-03fd33ef73a9: GET /agent/test_agent/status
+2025-10-04 19:26:42,502 - transport.http - INFO - Response b62beb6b-fd87-4794-b671-03fd33ef73a9: 200 (4.82ms)
+2025-10-04 19:26:51,961 - transport.http - INFO - Request 0225231e-2099-4511-9ba9-44ded7527292: GET /stats
+2025-10-04 19:26:51,967 - transport.http - INFO - Response 0225231e-2099-4511-9ba9-44ded7527292: 200 (7.30ms)
+2025-10-04 19:27:04,604 - transport.http - INFO - Request 09a4aa88-d533-41ca-8801-5530119d33d4: POST /agent/message
+2025-10-04 19:27:04,606 - transport.http - INFO - Agent message: test_agent -> target_agent (type: test_message)
+2025-10-04 19:27:04,608 - transport.http - INFO - Response 09a4aa88-d533-41ca-8801-5530119d33d4: 200 (3.46ms)
+2025-10-04 19:30:37,570 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 19:30:37,570 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 19:30:37,572 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 19:30:37,572 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 19:30:37,572 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 19:30:37,574 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 19:30:37,574 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 19:35:37,584 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 19:35:37,586 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 19:35:37,586 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 19:35:37,587 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 19:35:37,588 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 19:35:37,588 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 19:35:37,588 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 19:40:37,590 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 19:40:37,591 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 19:40:37,592 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 19:40:37,593 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 19:40:37,593 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 19:40:37,594 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 19:40:37,594 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 19:45:37,609 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 19:45:37,611 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 19:45:37,613 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 19:45:37,614 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 19:45:37,618 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 19:45:37,619 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 19:45:37,621 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 20:34:27,110 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 20:34:27,179 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 20:34:27,218 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 20:34:27,225 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 20:34:27,226 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 20:34:27,230 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 20:34:27,232 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 20:39:27,244 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 20:39:27,247 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 20:39:27,251 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 20:39:27,252 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 20:39:27,253 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 20:39:27,254 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 20:39:27,254 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 20:44:27,273 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 20:44:27,280 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 20:44:27,285 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 20:44:27,286 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 20:44:27,291 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 20:44:27,293 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 20:44:27,293 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 20:49:27,305 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 20:49:27,308 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 20:49:27,314 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 20:49:27,314 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 20:49:27,315 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 20:49:27,318 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 20:49:27,318 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 20:55:30,018 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 20:55:30,073 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 20:55:30,120 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 20:55:30,148 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 20:55:30,149 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 20:55:30,173 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 20:55:30,201 - memory.consolidation - INFO - Memory consolidation cycle completed
