@@ -2256,3 +2256,157 @@ Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reas
 2025-10-04 20:55:30,149 - memory.long_term - INFO - Cleaned up 0 inactive entries
 2025-10-04 20:55:30,173 - memory.consolidation - INFO - Memory cleanup completed
 2025-10-04 20:55:30,201 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 21:00:30,216 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 21:00:30,219 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 21:00:30,222 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 21:00:30,223 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 21:00:30,225 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 21:00:30,227 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 21:00:30,227 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 21:05:30,252 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 21:05:30,254 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 21:05:30,254 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 21:05:30,255 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 21:05:30,255 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 21:05:30,256 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 21:05:30,256 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 21:10:30,229 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 21:10:30,230 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 21:10:30,230 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 21:10:30,231 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 21:10:30,231 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 21:10:30,232 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 21:10:30,232 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 21:15:30,246 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 21:15:30,247 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 21:15:30,253 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 21:15:30,254 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 21:15:30,254 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 21:15:30,255 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 21:15:30,256 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 21:20:30,247 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 21:20:30,249 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 21:20:30,254 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 21:20:30,260 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 21:20:30,261 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 21:20:30,267 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 21:20:30,268 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 21:25:30,274 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 21:25:30,275 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 21:25:30,275 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 21:25:30,276 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 21:25:30,276 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 21:25:30,277 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 21:25:30,277 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 21:30:30,300 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 21:30:30,303 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 21:30:30,304 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 21:30:30,305 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 21:30:30,307 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 21:30:30,309 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 21:30:30,309 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 21:35:30,320 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 21:35:30,321 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 21:35:30,322 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 21:35:30,322 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 21:35:30,323 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 21:35:30,323 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 21:35:30,325 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 21:40:30,329 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 21:40:30,331 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 21:40:30,333 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 21:40:30,334 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 21:40:30,334 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 21:40:30,334 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 21:40:30,335 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 21:44:53,858 - __main__ - INFO - Initializing Marketing Multi-Agent System...
+2025-10-04 21:44:53,858 - __main__ - INFO - Initializing memory systems...
+2025-10-04 21:44:53,858 - memory.manager - INFO - Initializing memory systems...
+2025-10-04 21:44:55,944 - memory.short_term - INFO - Short-term memory initialized successfully
+2025-10-04 21:44:55,966 - memory.long_term - INFO - Long-term memory initialized successfully
+2025-10-04 21:44:55,972 - memory.episodic - INFO - Episodic memory initialized
+2025-10-04 21:45:00,058 - memory.semantic - WARNING - Neo4j unavailable - semantic memory disabled: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 1225] The remote computer refused the network connection)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 1225] The remote computer refused the network connection)
+2025-10-04 21:45:00,059 - memory.consolidation - INFO - Memory consolidation engine started
+2025-10-04 21:45:00,059 - memory.manager - INFO - All memory systems initialized successfully
+2025-10-04 21:45:00,059 - __main__ - INFO - [OK] Memory systems initialized
+2025-10-04 21:45:00,061 - __main__ - INFO - Initializing MCP server...
+2025-10-04 21:45:00,095 - database.db_manager - INFO - Database engine initialized successfully
+2025-10-04 21:45:00,104 - database.db_manager - INFO - Database tables created successfully
+2025-10-04 21:45:00,106 - mcp.server - INFO - Starting MCP Server...
+2025-10-04 21:45:00,106 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 21:45:00,125 - memory.consolidation - INFO - Starting memory consolidation cycle
+2025-10-04 21:45:00,126 - memory.consolidation - INFO - Consolidated 0 short-term memories to long-term
+2025-10-04 21:45:00,127 - memory.consolidation - INFO - Running memory cleanup
+2025-10-04 21:45:00,127 - memory.short_term - INFO - Cleaned up 0 expired entries
+2025-10-04 21:45:00,128 - memory.long_term - INFO - Cleaned up 0 inactive entries
+2025-10-04 21:45:00,128 - memory.consolidation - INFO - Memory cleanup completed
+2025-10-04 21:45:00,128 - memory.consolidation - INFO - Memory consolidation cycle completed
+2025-10-04 21:45:04,217 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 21:45:04,219 - mcp.server - INFO - MCP Server started successfully
+2025-10-04 21:45:04,221 - __main__ - INFO - [OK] MCP server initialized
+2025-10-04 21:45:04,222 - __main__ - INFO - Initializing MCP client...
+2025-10-04 21:45:04,222 - mcp.client - INFO - Client main_client connecting to MCP server...
+2025-10-04 21:45:04,222 - mcp.transport - INFO - Connecting to WebSocket server at ws://localhost:9001
+2025-10-04 21:45:08,312 - mcp.transport - ERROR - Failed to connect WebSocket client: [WinError 1225] The remote computer refused the network connection
+2025-10-04 21:45:08,312 - mcp.client - ERROR - Failed to connect transport
+2025-10-04 21:45:08,313 - __main__ - INFO - [OK] MCP client connected
+2025-10-04 21:45:08,313 - __main__ - INFO - Initializing transport handlers...
+2025-10-04 21:45:08,313 - transport.websocket - INFO - Starting WebSocket server on localhost:9002
+2025-10-04 21:45:08,317 - transport.websocket - ERROR - Failed to start WebSocket server: [Errno 10048] error while attempting to bind on address ('::1', 9002, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Traceback (most recent call last):
+  File "C:\Users\user\Downloads\Marketing Multi-Agent System\marketing-multi-agent-system\transport\websocket_handler.py", line 107, in start
+    self.server = await websockets.serve(
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\websockets\asyncio\server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1571, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('::1', 9002, 0, 0): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-10-04 21:45:08,399 - __main__ - WARNING - Port 9002 in use, trying next port...
+2025-10-04 21:45:08,399 - transport.websocket - INFO - Starting WebSocket server on localhost:9003
+2025-10-04 21:45:08,401 - websockets.server - INFO - server listening on 127.0.0.1:9003
+2025-10-04 21:45:08,401 - websockets.server - INFO - server listening on [::1]:9003
+2025-10-04 21:45:08,401 - transport.websocket - INFO - WebSocket server started successfully
+2025-10-04 21:45:08,401 - __main__ - INFO - [OK] WebSocket handler started on port 9003
+2025-10-04 21:45:08,405 - transport.http - INFO - Registered handler for method: test
+2025-10-04 21:45:08,405 - transport.http - INFO - Registered handler for method: get_system_status
+2025-10-04 21:45:08,406 - transport.http - INFO - Registered handler for method: triage_lead
+2025-10-04 21:45:08,406 - __main__ - INFO - Registered test handlers: test, get_system_status, triage_lead
+2025-10-04 21:45:08,406 - __main__ - INFO - [OK] HTTP handler initialized
+2025-10-04 21:45:08,406 - __main__ - INFO - Skipping agent initialization - agents need implementation
+2025-10-04 21:45:08,406 - __main__ - INFO - [OK] Agent initialization skipped
+2025-10-04 21:45:08,406 - __main__ - INFO - ============================================================
+2025-10-04 21:45:08,406 - __main__ - INFO - System initialization completed successfully!
+2025-10-04 21:45:08,406 - __main__ - INFO - ============================================================
+2025-10-04 21:45:08,406 - __main__ - INFO - Marketing Multi-Agent System is now operational
+2025-10-04 21:45:08,407 - __main__ - INFO - API Server: http://localhost:8000
+2025-10-04 21:45:08,407 - __main__ - INFO - WebSocket: ws://localhost:9002 (or 9003)
+2025-10-04 21:45:08,407 - __main__ - INFO - Press CTRL+C to shutdown
+2025-10-04 21:45:08,727 - __main__ - INFO - Initiating graceful shutdown...
+2025-10-04 21:45:08,727 - __main__ - INFO - [OK] Agents stopped
+2025-10-04 21:45:08,728 - transport.websocket - INFO - Stopping WebSocket server...
+2025-10-04 21:45:08,728 - websockets.server - INFO - server closing
+2025-10-04 21:45:08,728 - websockets.server - INFO - server closed
+2025-10-04 21:45:08,728 - transport.websocket - INFO - WebSocket server stopped
+2025-10-04 21:45:08,729 - __main__ - INFO - [OK] Transport handlers stopped
+2025-10-04 21:45:08,729 - mcp.client - INFO - Client main_client disconnecting...
+2025-10-04 21:45:08,729 - mcp.transport - INFO - WebSocket client disconnected
+2025-10-04 21:45:08,729 - mcp.client - INFO - Client main_client disconnected
+2025-10-04 21:45:08,729 - mcp.server - INFO - Stopping MCP Server...
+2025-10-04 21:45:08,729 - mcp.transport - INFO - WebSocket client disconnected
+2025-10-04 21:45:08,729 - mcp.server - INFO - MCP Server stopped
+2025-10-04 21:45:08,729 - __main__ - INFO - [OK] MCP server/client stopped
+2025-10-04 21:45:08,730 - memory.manager - INFO - Shutting down memory systems...
+2025-10-04 21:45:08,730 - memory.consolidation - INFO - Memory consolidation engine stopped
+2025-10-04 21:45:08,730 - memory.short_term - INFO - Short-term memory connection closed
+2025-10-04 21:45:08,731 - memory.long_term - INFO - Long-term memory connection closed
+2025-10-04 21:45:08,731 - memory.episodic - INFO - Episodic memory connection closed
+2025-10-04 21:45:08,732 - memory.semantic - INFO - Semantic memory connection closed
+2025-10-04 21:45:08,732 - memory.manager - INFO - Memory systems shutdown complete
+2025-10-04 21:45:08,732 - __main__ - INFO - [OK] Memory systems closed
+2025-10-04 21:45:08,732 - __main__ - INFO - ============================================================
+2025-10-04 21:45:08,732 - __main__ - INFO - Shutdown completed successfully
+2025-10-04 21:45:08,732 - __main__ - INFO - ============================================================

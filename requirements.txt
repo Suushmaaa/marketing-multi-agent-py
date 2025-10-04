@@ -1,2 +1,13 @@
 aiosqlite
 sqlalchemy
+fastapi
+uvicorn[standard]
+websockets
+httpx
+pydantic
+python-multipart
+neo4j  # Optional: for semantic memory
+redis  # Optional: for short-term memory
+boto3  # Optional: for AWS SES email
+twilio  # Optional: for SMS
+sendgrid  # Optional: for SendGrid email
